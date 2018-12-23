@@ -3,6 +3,9 @@
 
 This project is aimed at intelligent routing of data from IoT devices to cloud, via an edge platform acting as a middle layer between them. Our main objective was to provide continuous delivery of data to the cloud with high availability and consistency. To scope down the problem at hand, we looked at scenarios where data is not necessarily required to be streamed live but could tolerate some delay at the cost of being filtered out. This type of framework is generally suitable for sensor devices like carbon monoxide detector, temperature & humidity measuring devices where real time data availability is not the primary concern but providing the high availability of data is very critical because during data analysis, false positive should be very low otherwise inferred results can be hazardous.
 
+
+## System Architecture
+
 <img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/System_Architecture.png">
 <h4 align=center><b>Figure:</b> System Architecture</h4>
 
@@ -22,6 +25,25 @@ This acts as a persistent data store for client data which will get synchronized
 We use AWS’s FaaS (Function as a Service) framework to synchronize the data from edge node to the cloud. At the cloud side, we employ S3 buckets as the final data persistent store where every bucket corresponds to a unique IoT (client) device. Using AWS API gateway, we exposed a Lambda function which will accept the edge node request with the data in JSON format and create a file based on the device ID and timestamp. The lambda function then uploads this uniquely named temporary file to the specific S3 bucket of that device.
 
 
+The workflow of our designed system can be understood through the following figure:
+
+
+<img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/workflow.png">
+<h4 align=center><b>Figure:</b> Workflow of implemented system</h4>
+
+
+
+
+## Fitness Function
+The fitness function for selecting most optimal edge repository for a particular requesting IoT device is:
+
+<img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/Fitness_function.png">
+
+This function is aimed to intelligently distribute the workload among active edge repositories such that the overall system performance is maximized.
+
+
+
+
 
 ## Results
 
@@ -29,13 +51,17 @@ We use AWS’s FaaS (Function as a Service) framework to synchronize the data fr
 
 <img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/result_curve_bandwidth.png">
 <h4 align=center><b>Figure:</b> Number of synchronized points after applying filter_1 (send_on_change), and filter_2 (12_hour_ average) </h4>
-<br><br>
+
+
 
 - Intelligent distribution of workload among edge repositories using fitness functions lead to reduction in synchronization times.
 
 <img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/result_curve_time.png">
 <h4 align=center><b>Figure:</b> Sychronization rate performance </h4>
-<br><br>
+
+<img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/Workload_distribution.png">
+<h4 align=center><b>Figure:</b> Performance comparison with fitness function </h4>
+
 
 
 
