@@ -23,6 +23,22 @@ We use AWS’s FaaS (Function as a Service) framework to synchronize the data fr
 
 
 
+## Results
+
+- Employing a suitable filter function at the edge repository can greatly reduce the consumed network bandwidth while meeting requirements.
+
+<img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/result_curve_bandwidth.png">
+<h4 align=center><b>Figure:</b> Number of synchronized points after applying filter_1 (send_on_change), and filter_2 (12_hour_ average) </h4>
+<br><br>
+
+- Intelligent distribution of workload among edge repositories using fitness functions lead to reduction in synchronization times.
+
+<img src="https://github.com/Mahendra-Maiti/Sync_IoT/blob/master/result_curve_time.png">
+<h4 align=center><b>Figure:</b> Sychronization rate performance </h4>
+<br><br>
+
+
+
 
 
 
