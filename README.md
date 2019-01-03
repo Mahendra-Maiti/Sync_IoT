@@ -1,7 +1,7 @@
 # Sync_IoT
 
 
-This project is aimed at intelligent routing of data from IoT devices to cloud via an edge platform acting as an ubiquitous middle layer. Our main objective was to provide continuous delivery of data to the cloud with high availability and consistency. To scope down the problem at hand, we looked at scenarios where data is not necessarily required to be streamed live but could tolerate some delay at the cost of being filtered out. This type of framework is generally suitable for sensor devices like carbon monoxide detector, temperature & humidity measuring devices where real time data availability is not the primary concern but reliability of data is very critical. During data analysis, false positives should be very low to prevent erroneous inferences.
+This project is aimed at intelligent routing of data from IoT devices to cloud via an edge platform acting as an ubiquitous middle layer. Our main objective was to provide continuous delivery of data to the cloud with high accuracy and consistency. To scope down the problem at hand, we looked at scenarios where data is not necessarily required to be streamed live but could tolerate some delay at the cost of being filtered out. This type of framework is generally suitable for sensor devices like carbon monoxide detector, temperature & humidity measuring devices where real time data availability is not the primary concern but reliability of data is very critical. During data analysis, false positives should be very low to prevent erroneous inferences.
 
 
 ## System Architecture
